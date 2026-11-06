@@ -1,0 +1,14 @@
+{
+  "name": "@uyghurcommunity/doppa-studio",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "A browser-local Uyghur 2D ornament editor with deterministic SVG, PNG and JSON exports.",
+  "scripts": {
+    "test": "node --test",
+    "check": "node --check app.js && node --check engine.js"
+  },
+  "engines": { "node": ">=22" },
+  "license": "MIT",
+  "repository": "https://github.com/UyghurCommunity/doppa-studio"
+}

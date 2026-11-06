@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ug" dir="rtl" data-motion="paused">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101e2b">
+  <meta name="description" content="دوپپا ئىلھامىدىكى نەقىشلەرنى لايىھەلەڭ، رەڭ ۋە سىممېترىيەنى تەڭشەڭ، SVG ۋە PNG قىلىپ ساقلاڭ.">
+  <title>دوپپا ستۇدىيەسى · Doppa Studio</title>
+  <link rel="icon" type="image/svg+xml" href="icon.svg">
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body class="alkatip-basma">
+  <header class="site-header">
+    <a class="brand" href="./" aria-label="دوپپا ستۇدىيەسى باش بېتى"><img src="icon.svg" width="34" height="34" alt=""><span>دوپپا <strong>ستۇدىيەسى</strong></span><span class="beta" dir="ltr">01 / STUDIO</span></a>
+    <nav aria-label="باش يولباشچى"><a href="https://uyghurcommunity.github.io/">جامائەت</a><a href="https://github.com/UyghurCommunity/doppa-studio">مەنبە كودى ↗</a><button id="motion-toggle" class="icon-button" type="button" aria-pressed="false">ھەرىكەت <span aria-hidden="true">Ⅱ</span></button></nav>
+  </header>
+
+  <main>
+    <section class="intro">
+      <div><p class="eyebrow"><span class="live-dot"></span>ئويىڭىزدىن نەقىشكە</p><h1>ھەر بىر نەقىش، <span>بىر تەسەۋۋۇر.</span></h1><p>دوپپىدىن ئىلھام ئېلىپ، ئۆزىڭىزگە خاس رەڭ ۋە شەكىل تىلىنى يارىتىڭ.</p></div>
+      <div class="intro-note"><span class="note-mark" aria-hidden="true">✳</span><span>ئەركىن لايىھەلەڭ<br><small>بەتتە تەھرىرلەڭ، ھۆججەت قىلىپ ئېلىڭ</small></span></div>
+    </section>
+
+    <section class="studio" aria-label="نەقىش تەھرىرلىگۈچ">
+      <aside class="inspector" aria-label="نەقىش تەڭشەكلىرى">
+        <div class="inspector-top"><h2>لايىھە تەڭشەكلىرى</h2><span class="small-label" dir="ltr">DESIGN / 01</span></div>
+        <fieldset><legend>ئىشلەش ئۇسۇلى</legend><div class="segmented"><button type="button" data-mode="repeat" aria-pressed="true">تەكرار نەقىش</button><button type="button" data-mode="custom" aria-pressed="false">ئەركىن ئورۇنلاشتۇرۇش</button></div><p class="control-hint" id="mode-hint">بىر شەكىلدىن پۈتۈن بىر رەسىم ھاسىل قىلىڭ.</p></fieldset>
+        <fieldset><legend>نەقىش شەكلى</legend><div class="motif-choices"><button type="button" data-motif="almond" aria-pressed="true"><span class="motif-preview" aria-hidden="true"></span>بادام</button><button type="button" data-motif="rosette" aria-pressed="false"><span class="motif-preview" aria-hidden="true"></span>گۈل</button><button type="button" data-motif="atlas" aria-pressed="false"><span class="motif-preview" aria-hidden="true"></span>ئەتلەس</button></div></fieldset>
+        <fieldset><legend>رەڭلەر</legend><div class="palette-choices" aria-label="تەييار رەڭ توپلىرى"><button type="button" data-palette="midnight" aria-label="تۈن رەڭلىرى" aria-pressed="true"></button><button type="button" data-palette="garden" aria-label="باغ رەڭلىرى" aria-pressed="false"></button><button type="button" data-palette="pomegranate" aria-label="ئانار رەڭلىرى" aria-pressed="false"></button><button type="button" data-palette="porcelain" aria-label="كاشى رەڭلىرى" aria-pressed="false"></button></div><div class="color-inputs"><label>تەگلىك<input type="color" data-color="cloth" value="#102d3d"></label><label>ئاساسىي يىپ<input type="color" data-color="thread" value="#c4e9ee"></label><label>تەپسىلات<input type="color" data-color="detail" value="#4d9dad"></label><label>گىرۋەك<input type="color" data-color="trim" value="#d8b474"></label></div></fieldset>
+        <fieldset class="sliders"><legend>شەكىل ۋە ئارىلىق</legend><label for="spacing"><span>نەقىش ئارىلىقى</span><output id="spacing-value" for="spacing" dir="ltr">120 px</output></label><input id="spacing" type="range" min="48" max="240" step="1" value="120"><label for="size"><span>نەقىش چوڭلۇقى</span><output id="size-value" for="size" dir="ltr">78 px</output></label><input id="size" type="range" min="16" max="180" step="1" value="78"><label for="rotation"><span>ئايلىنىش بۇلۇڭى</span><output id="rotation-value" for="rotation" dir="ltr">0°</output></label><input id="rotation" type="range" min="-180" max="180" step="1" value="0"></fieldset>
+        <fieldset><legend>سىممېترىيە</legend><div class="segmented symmetry"><button type="button" data-symmetry="none" aria-pressed="false">ئەركىن</button><button type="button" data-symmetry="mirror" aria-pressed="true">ئەينەك</button><button type="button" data-symmetry="four" aria-pressed="false">تۆت تەرەپ</button></div></fieldset>
+        <fieldset><legend>رەسىم ئۆلچىمى</legend><label class="select-label" for="dimensions"><select id="dimensions"><option value="960x720">توغرا تۆت بۇلۇڭ · 960 × 720</option><option value="900x900">كۋادرات · 900 × 900</option><option value="720x960">تىك تۆت بۇلۇڭ · 720 × 960</option><option value="custom" hidden>ئىختىيارىي ئۆلچەم</option></select></label><div class="seed-row"><label for="seed">ئورۇنلاشتۇرۇش ئۇرۇقى</label><input id="seed" type="number" min="0" max="999999" step="1" value="24" dir="ltr"><button type="button" id="shuffle" class="icon-button" aria-label="يېڭى ئۇرۇق ھاسىل قىلىش">⤨</button></div></fieldset>
+        <button type="button" id="reset" class="reset-button">لايىھەنى ئەسلىگە قايتۇرۇش ↺</button>
+      </aside>
+
+      <div class="workbench">
+        <div class="canvas-toolbar"><div class="document-title"><span class="document-dot"></span><strong>مېنىڭ نەقشىم</strong><span id="scene-mode" class="small-label">تەكرار نەقىش</span></div><div class="tool-actions"><button type="button" id="undo" class="icon-button" aria-label="ئالدىنقى ھالەتكە قايتىش" title="Ctrl / ⌘ + Z" disabled>↶</button><button type="button" id="redo" class="icon-button" aria-label="قايتا ئىشلەش" title="Ctrl / ⌘ + Shift + Z" disabled>↷</button><span class="tool-divider"></span><button type="button" id="grid-toggle" class="icon-button" aria-pressed="false" aria-label="تور سىزىقىنى كۆرسىتىش">▦</button><button type="button" id="fit" class="icon-button" aria-label="رەسىمنى سىغدۇرۇش">⊡</button></div></div>
+        <div class="canvas-area" id="canvas-area"><div class="canvas-corner corner-top" aria-hidden="true"></div><div id="artwork" class="artwork" aria-label="نەقىش رەسىم سەھنىسى"></div><div class="canvas-corner corner-bottom" aria-hidden="true"></div><div class="canvas-caption" aria-hidden="true"><span>ئەسلى نەقىش / رەقەملىك قول ھۈنەر</span><span dir="ltr">DOPPA STUDIO</span></div></div>
+        <div class="canvas-bottom"><p id="canvas-hint">تەڭشەكلەرنى ئۆزگەرتىپ نەتىجىنى دەرھال كۆرۈڭ.</p><div class="zoom-controls"><button type="button" id="zoom-out" aria-label="كىچىكلىتىش">−</button><output id="zoom-value" dir="ltr">100%</output><button type="button" id="zoom-in" aria-label="چوڭايتىش">+</button></div></div>
+        <div class="placement-toolbar"><button type="button" id="add-motif" class="secondary-button">＋ نەقىش قوشۇش</button><button type="button" id="delete-motif" class="text-button" disabled>تاللانغاننى ئۆچۈرۈش</button><span id="motif-count" class="small-label"></span><button type="button" id="clear-scene" class="text-button">سەھنىنى تازىلاش</button></div>
+        <div class="export-bar"><div><h2>تەييار بولدىمۇ؟</h2><p>نەقشىڭىزنى لايىھەڭىزگە ئېلىپ كىرىڭ.</p></div><div class="export-actions"><button type="button" id="export-svg" class="primary-button">SVG چۈشۈرۈش <span aria-hidden="true">↓</span></button><button type="button" id="export-png" class="secondary-button">PNG</button><details class="more-exports"><summary class="icon-button" aria-label="باشقا ساقلاش ئۇسۇللىرى">•••</summary><div><button type="button" id="copy-svg">SVG كودىنى كۆچۈرۈش</button><button type="button" id="save-json">لايىھەنى ساقلاش · JSON</button><button type="button" id="load-json">لايىھە ئېچىش · JSON</button><label for="png-scale">PNG ئېنىقلىقى<select id="png-scale"><option value="1">1×</option><option value="2" selected>2×</option></select></label></div></details></div></div>
+      </div>
+    </section>
+
+    <section class="presets-section" aria-labelledby="presets-title"><div class="section-heading"><div><p class="eyebrow">باشلاش ئۈچۈن بىر ئىلھام</p><h2 id="presets-title">تەييار لايىھەلەر</h2></div><p>بىرنى تاللاڭ، ئاندىن ئۆزگىچە قىلىڭ.</p></div><div class="presets"><button type="button" data-preset="midnight"><span class="preset-preview"></span><span class="preset-name">تۈن ۋە يۇلتۇز<small>بادام / كۆك</small><i aria-hidden="true">↖</i></span></button><button type="button" data-preset="garden"><span class="preset-preview"></span><span class="preset-name">باھار بېغى<small>گۈل / يېشىل</small><i aria-hidden="true">↖</i></span></button><button type="button" data-preset="atlas"><span class="preset-preview"></span><span class="preset-name">ئانار ئەتلىسى<small>ئەتلەس / ئانار</small><i aria-hidden="true">↖</i></span></button><button type="button" data-preset="porcelain"><span class="preset-preview"></span><span class="preset-name">كاشى خاتىرىسى<small>بادام / ئاق</small><i aria-hidden="true">↖</i></span></button></div></section>
+    <section class="usage-notes" aria-label="ئىشلىتىش ئىزاھاتى"><div><span class="note-number">01</span><h3>تەڭشەڭ ۋە سىناڭ</h3><p>شەكىل، رەڭ، چوڭلۇق ۋە سىممېترىيەنى تاللاڭ. ئوخشاش ئۇرۇق ئوخشاش نەقىشنى ھاسىل قىلىدۇ.</p></div><div><span class="note-number">02</span><h3>ئۆزىڭىز ئورۇنلاشتۇرۇڭ</h3><p>ئەركىن ئۇسۇلدا سەھنىنى چېكىپ نەقىش قوشۇڭ؛ تارتىپ يۆتكەڭ. يۆنىلىش كۇنۇپكىلىرى بىلەنمۇ يۆتكىيەلەيسىز.</p></div><div><span class="note-number">03</span><h3>سىزنىڭ قولىڭىزدا</h3><p>ھەممە ئىش توركۆرگۈچىڭىزدە بولىدۇ. SVG چوڭايتىلسىمۇ سۈزۈك؛ JSON ئارقىلىق داۋاملىق تەھرىرلەڭ.</p></div></section>
+  </main>
+  <footer><a href="https://uyghurcommunity.github.io/">UyghurCommunity ↗</a><p>مەدەنىيەتتىن ئىلھام، تەسەۋۋۇردىن نەقىش.</p><span><bdi>MIT</bdi> ئىجازەتنامىسى · 2026</span></footer>
+  <input type="file" id="scene-file" accept=".json,application/json" hidden>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <noscript><p class="noscript">نەقىش تەھرىرلەش ئۈچۈن توركۆرگۈچىڭىزدە JavaScript نى ئېچىڭ.</p></noscript>
+</body>
+</html>
