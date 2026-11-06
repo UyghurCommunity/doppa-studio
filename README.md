@@ -19,7 +19,7 @@ Open <http://localhost:4173/>. ES modules require an HTTP server; opening `index
 ## Design a pattern
 
 - **Repeat mode:** choose a motif, palette, spacing, size, rotation, and symmetry. Seeded jitter gives each layout a small, reproducible variation. The same settings and seed produce the same SVG.
-- **Custom mode:** switching from repeat mode converts up to 200 source motifs into editable placements. Click a blank area to add a motif. Select, drag, resize, rotate, or delete it. Mirrored copies track their source, including when dragged from the reflected side. Use the clear-scene action to start empty.
+- **Custom mode:** switching from repeat mode converts up to 200 source motifs into editable placements. Denser patterns show how many motifs were omitted, and conversion can be undone. Click a blank area to add a motif. Select, drag, resize, rotate, or delete it. Mirrored copies track their source, including when dragged from the reflected side. Use the clear-scene action to start empty. If the scene is full, adding a motif leaves the current scene and mode intact.
 - **Symmetry:** no reflection, horizontal mirror, or four-way reflection. Reflections share one editable source motif. Overlapping reflections at the center are allowed.
 - **Presets:** midnight, garden, pomegranate atlas, and porcelain palettes provide four starting scenes.
 - **Undo/redo:** the latest 60 scene states include palette changes, placement drags, presets, resets, imports, and clearing. A drag or slider change becomes one history entry. Loading the page starts a fresh history.
@@ -29,7 +29,7 @@ The current scene is saved to browser-local storage when available. JSON downloa
 
 ### Keyboard and mobile use
 
-Tab to a custom motif and press Enter or Space to select it. Arrow keys move the selected source by one canvas unit; Shift + Arrow moves it by ten. Delete or Backspace removes it. Escape clears the selection. Ctrl/Command + Z undoes; Ctrl/Command + Shift + Z or Ctrl/Command + Y redoes. Text inputs keep their normal editing shortcuts.
+Tab to a custom motif and press Enter or Space to select it. Arrow keys move it by one canvas unit in the visible direction, including reflected copies; Shift + Arrow moves it by ten. Delete or Backspace removes the focused/selected motif. Focus remains on the motif after it moves. Escape cancels an active drag, or clears the selection otherwise. Pointer cancellation or hiding the page also cancels an unfinished drag. Ctrl/Command + Z undoes; Ctrl/Command + Shift + Z or Ctrl/Command + Y redoes. Text inputs keep their normal editing shortcuts.
 
 On small screens the canvas appears above the inspector. Custom-mode pointer dragging works with touch and a mouse. Use the page outside the artwork to scroll while in custom mode; the artwork reserves touch input for placing and moving motifs.
 
@@ -43,6 +43,8 @@ On small screens the canvas appears above the inspector. Custom-mode pointer dra
 | Clipboard SVG | The same clean SVG markup, ready to paste into an HTML document. If clipboard access is blocked, download the SVG instead. |
 
 The SVG's accessible title is metadata; there are no rendered text elements or font dependencies in the artwork. PNG generation requires browser SVG image decoding and Canvas 2D support. Scene dimensions are 240–2048 units per side, and imported scenes are limited to 250,000 characters and 200 source placements. Symmetry can create up to four rendered copies of each source placement.
+
+PNG export captures the SVG, dimensions, and resolution together when clicked, so further editing while the image decodes cannot stretch that export. When file reads overlap, only the latest requested JSON import is applied.
 
 The pattern artwork is an original digital interpretation inspired by textile ornament. It is not a historical catalog, a regional authenticity claim, or a physical doppa cutting/sewing template.
 
@@ -71,7 +73,7 @@ npm run check
 npm test
 ```
 
-Tests cover deterministic seeds, mirror coordinates, pure export contents, malicious configuration rejection, bounds and placement IDs, cloning, history branching, history limits, and JSON/preset round trips. CI uses official checkout and setup-node actions pinned to commit SHAs, and runs syntax checks and tests without an install step.
+Tests cover deterministic seeds, mirror coordinates, pure export contents, malicious configuration rejection, bounds and placement IDs, cloning, history branching/limits, and JSON/preset round trips. Regression tests also cover alternating atlas rotations, dense-mode conversion, atomic insertion at the placement limit, available-ID reuse, reflected keyboard movement, PNG export snapshots, and undo/redo across clearing, resetting, moving, and importing. CI uses official checkout and setup-node actions pinned to commit SHAs, and runs syntax checks and tests without an install step.
 
 ## Publish to GitHub Pages
 
